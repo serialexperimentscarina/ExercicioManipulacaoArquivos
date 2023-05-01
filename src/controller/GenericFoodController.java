@@ -22,6 +22,7 @@ public class GenericFoodController implements IArquivosController{
 			BufferedReader buffer = new BufferedReader(leFluxo);
 			String linha = buffer.readLine();
 			
+			// Selecione cada linha, verifique se o alimento é do GROUP Fruits, se for, exibir no console, em formato tabular
 			while (linha != null) {
 				String[] vetLinha = linha.split(",");
 				if (vetLinha[0].equals("FOOD NAME") || vetLinha[2].toLowerCase().contains("fruit")) {
@@ -37,7 +38,7 @@ public class GenericFoodController implements IArquivosController{
 			leFluxo.close();
 			abreFluxo.close();
 		} else {
-			System.out.println("Path ou arquivo inválidos");
+			throw new IOException("Arquivo ou caminho inválido!");
 		}
 		
 	}
